@@ -1,0 +1,59 @@
+<!-- Layla Saunders, 18/03/2026 -->
+<!-- © wtfpl (www.wtfpl.net) -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/style.css" />
+	<title>Photography - Layla</title>
+</head>
+<body>
+<main>
+        <h1>
+            photos!
+        </h1>
+        <p><i><span id="counter">loading</span> hits, last updated: 18th march 2026, <b>still niche</b></i></p>
+        <br><br><br><br>
+        <h2>
+            this is my photo website where i put photos
+        </h2>
+        <p>
+            <i>for more about me go to 
+                <b><a href="https://layla.lol">layla.lol</a></b> 
+                & for my other sites go to 
+                <b><a href="https://laylasaunders.co.uk">laylasaunders.co.uk</a></b> 
+                <3</i><br><br>
+            enjoy the photos! its possible this might not stay very up to date as i famously take a long time 
+            to choose and edit photos to send to people, unfortunately this website is no different!
+        </p>
+
+        <div id="gallery">
+        {% assign photos = site.static_files 
+            | where_exp:"file","file.path contains '/img/'" 
+            | sort: "name" 
+            | reverse %}
+        {% for photo in photos %}
+            <img src="{{ photo.path | relative_url }}" alt="Photo" loading="lazy" class="gallery">
+        {% endfor %}
+        </div>
+
+        <br><br><br>
+        made by layla, viewed by you. © 2026 
+        <a href="http://www.wtfpl.net/">wtfpl</a><br>
+        thanks for stopping by, and keep ts niche <3
+</main>
+</body>
+<script>
+fetch("https://counter.silly-7f7.workers.dev/increment/site2")
+    .then(res => res.json())
+    .then(data => {
+    document.getElementById("counter").textContent = data.count;
+    })
+    .catch(err => {
+    console.error(err);
+    document.getElementById("counter").textContent = "—";
+    });
+</script>
+</html>
