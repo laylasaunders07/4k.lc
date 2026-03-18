@@ -19,3 +19,19 @@ main {
     margin-right: auto;
     margin-top: 10%;
 }
+
+.gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* vertical spacing between images */
+    align-items: center; /* centers images horizontally */
+}
+
+.gallery img.gallery {
+    max-width: 800px; /* controls size */
+    width: 100%; /* responsive */
+    height: auto;
+    border-radius: 12px; /* rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* subtle shadow */
+    display: block;
+}
