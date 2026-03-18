@@ -28,10 +28,10 @@ main {
 }
 
 .gallery img.gallery {
-    max-width: 800px; /* controls size */
+    max-width: 100%;
     width: 100%; /* responsive */
     height: auto;
-    border-radius: 12px; /* rounded corners */
+    border-radius: 10px; /* rounded corners */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* subtle shadow */
     display: block;
 }
