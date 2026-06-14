@@ -32,19 +32,7 @@
             <i><b>"what am i without you?<br>yourself."</b><br>
             -c!tommy & c!tubbo, 2021</i><br><br>
         </p>
-        <div class="gallery" id="gallery">
-        {% assign photos = site.static_files 
-            | where_exp:"file","file.path contains '/img/'" 
-            | sort: "name" 
-            | reverse %}
-        {% for photo in photos %}
-            {% assign full_url = site.url | append: photo.path %}
-            <img src="https://images.weserv.nl/?url={{ full_url | url_encode }}&w=800&output=webp" 
-                alt="Photo" 
-                loading="lazy" 
-                class="gallery">
-        {% endfor %}
-        </div>
+        <div class="gallery" id="gallery"></div>
 
         <br><br><br>
         made by layla, viewed by you. © 2026 
@@ -62,5 +50,17 @@ fetch("https://counter.silly-7f7.workers.dev/increment/4k.lc")
     console.error(err);
     document.getElementById("counter").textContent = "—";
     });
+
+{% assign photos = site.static_files 
+	| where_exp:"file","file.path contains '/img/'" 
+	| sort: "name" 
+	| reverse %}
+{% for photo in photos %}
+	{% assign full_url = site.url | append: photo.path %}
+	<img src="https://images.weserv.nl/?url={{ full_url | url_encode }}&w=800&output=webp" 
+		alt="Photo" 
+		loading="lazy" 
+		class="gallery">
+{% endfor %}
 </script>
 </html>
