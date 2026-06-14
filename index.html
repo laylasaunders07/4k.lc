@@ -38,7 +38,11 @@
             | sort: "name" 
             | reverse %}
         {% for photo in photos %}
-            <img src="{{ photo.path | relative_url }}" alt="Photo" loading="lazy" class="gallery">
+            {% assign full_url = site.url | append: photo.path %}
+            <img src="https://images.weserv.nl/?url={{ full_url | url_encode }}&w=800&output=webp" 
+                alt="Photo" 
+                loading="lazy" 
+                class="gallery">
         {% endfor %}
         </div>
 
